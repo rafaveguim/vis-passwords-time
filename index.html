@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="d3/d3.v2.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.cloud.js"></script>
+    <script type="text/javascript" src="util.js"></script>
+    <script type="text/javascript" src="wordle.js"></script>
+    <script type="text/javascript" src="century_ball.js"></script>
+    <script type="text/javascript" src="calendar.js" ></script>
+
+
+    <link rel="stylesheet" href="colorbrewer.css">
+    <link rel="stylesheet" href="calendar.css">
+    <title>Visualizing Semantics in Passwords</title>
+</head>
+
+<body style="width: 100%; height: 100%; margin: 0;">
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=236220429758561";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+
+    <div id="loading">
+        <div id="cell">
+            <div class="content">
+                <img class="help_image" src="img/help.png"/>
+                <p>Please wait while the application loads...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="help_panel">
+        <img class="help_image" src="img/help.png"/>
+    </div>
+
+    <div id="app">
+
+
+    <!--<div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>​-->
+
+    <!--<div id="loading">Loading...</div>-->
+	<!--<div id="patternbar">
+        <input size="50" type="search" id="pattern_input" onkeyup="updateFilters()"/>
+    </div> -->
+    <div id="top">
+        <div id="chart" style="width: 922px; height: 160px">
+        </div>
+        <div id="help_button" style="display: none">
+            <p style="cursor: pointer; font-size: 40pt; font-weight: bold; margin: 0; padding-top: 50px; line-height: 30px;">
+                <a class="help" style="text-decoration: none;">?<br>
+                <span style="font-size: 10pt; font-weight: normal;">Help</span></a></p>
+        </div>
+        <script type="text/javascript" src="help.js" ></script>
+    </div>
+
+    <div id="ball" style="width: 455px; height: 450px; float: left;">
+    </div>
+
+    <div id="wordle" style="width: 700px; height: 450px; float: left">
+
+		<div id="distrib" style="width: 550px; height: 18px; position: relative; display: none">
+			<div id="distrib_hover" class="bar"></div>
+			<div id="distrib_select" class="bar"></div>
+			<div id="noletters" class="bar"></div>
+			<div id="letters" class="bar"></div>
+			<div id="distrib_legend" >
+				<div style="float: left;">Only digits</div>
+				<div style="float: right;">Mixed</div>
+			</div>
+		</div>
+
+	</div>
+
+    </div>
+
+    <div id="summary">
+        <h1>Visualizing Semantics in Passwords</h1>
+        <h2>The Role of Dates</h2>
+        <h3>Rafael Veras, Julie Thorpe and Christopher Collins</h3>
+        <a href="http://vialab.science.uoit.ca/dates">http://vialab.science.uoit.ca/dates</a>
+        <p class="description">
+            This visualization shows the dates we extracted from a database of 32 million real passwords.
+            In each view, the darker the colours indicate more passwords corresponding to that date/year.
+            The default view shows the trends for the entire period of time
+            considered (1900-2012). It's possible to narrow down the analysis by selecting
+            specific decades, years and days (click on help for a guide on how to interact with
+            the views). The actual passwords corresponding to the selected time period are displayed in the wordle view.
+            In this work, we begin an investigation into the semantic patterns underlying user choice in passwords,
+            which can be used to inform usable password policies and password guidelines.
+            We found that nearly 5% of the examined passwords represent pure dates (either purely numerical or mixed alphanumeric
+            representations) and the presence of many patterns within the dates
+            that people choose (such as repetition, the first days of the month, recent years, and holidays).
+        </p>
+        <p class="description no_bottom_margin">For more information, please read our <a href="2012-vizsec-visualizing-semantics-in-passwords.pdf">paper</a>.</p>
+        <p class="description no_top_margin">We also invite you to send your <a href="mailto:christopher.collins@uoit.ca?Subject=Feedback - Visualizing passwords">feedback</a>.</p>
+
+        <!--<p class="copyright">-->
+            <!--* &copy; 2013 IEEE. Personal use of this material is permitted.-->
+            <!--Permission from IEEE must be obtained for all other uses, in any current or future media,-->
+            <!--including reprinting/republishing this material for advertising or promotional purposes,-->
+            <!--creating new collective works, for resale or redistribution to servers or lists,-->
+            <!--or reuse of any copyrighted component of this work in other works.-->
+        <!--</p>-->
+
+
+
+		<div class="socialbox" style="">
+			<div style="float:left; width:85px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+				<div class="fb-like" data-href="http://vialab.dc-uoit.net/pwdates/" data-send="no" data-layout="button_count" data-show-faces="true" data-font="verdana"></div>
+			</div>
+			<div style="float:left; width:80px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+				<g:plusone size="medium" href="http://vialab.dc-uoit.net/pwdates/"></g:plusone>
+			</div>
+			<div style="float:left; width:95px;padding-right:10px; margin:4px 4px 4px 4px;height:30px;">
+				<iframe allowtransparency="true" frameborder="0" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.1357323348.html#_=1357669401581&amp;count=horizontal&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http://vialab.dc-uoit.net/pwdates/&amp;size=m&amp;text=Visualizing Semantics in Passwords -&amp;url=http://vialab.dc-uoit.net/pwdates/" class="twitter-share-button twitter-count-horizontal" style="width: 110px; height: 20px;" title="Twitter Tweet Button" data-twttr-rendered="true"></iframe>
+			</div>
+		</div>
+        <div style="clear: both"></div>
+        <p style="text-align: center;">
+            <img src="img/uoit_logo_small.PNG" height="60px;" style="margin-right: 20px;"/>
+            <img src="img/vialab-logo-black-glow.png" height= "60px"/>
+        </p>
+    </div>
+
+</body>
+
+</html>
