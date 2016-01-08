@@ -1,7 +1,7 @@
 Dates in Passwords
 -------------------
 
-This is an interactive display of the date references found among the 32 million RockYou passwords.
+This is an interactive display of the date references found among the 32 million RockYou passwords. Check it [live](http://vialab.science.uoit.ca/pwdates/)!
 
 I extracted numeric sequences from every record of the RockYou password leak and matched them against common date formats.
 The frequency of days, months, and years is shown in the visualization, as well as the most frequent passwords containing a date-like numeric sequence.
